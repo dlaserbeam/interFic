@@ -5,7 +5,8 @@ using namespace std;
 
 string getString() {
   string aString;
-  cin >> aString;
+  cin.sync();
+  getline(cin, aString);
   return aString;
 }
 
@@ -22,7 +23,7 @@ int firstLeg () { //error with chained ifs and elses if direction is 'right'
   string choice = getString();
 
   if (choice == "right" || choice == "RIGHT" || choice == "Right") {
-    cout << "\n>A montster eats you.\n>You are dead. The end.\n\n";
+    cout << "\n>A montster eats you.\n";
     return -1;
   }
   else if (choice == "left" || choice == "LEFT" || choice == "Left") {
@@ -39,33 +40,45 @@ int firstLeg () { //error with chained ifs and elses if direction is 'right'
     else if (weapon == "bow and arrow" || weapon == "Bow and Arrow" || weapon == "BOW AND ARROW" ||
     weapon == "Bow and Arrow" || weapon == "bow" || weapon == "BOW" || weapon == "Bow") {
       return 0;
-      }
+    }
     else if (weapon == "wit" || weapon == "WIT" || weapon == "Wit" ||
     weapon == "Your Wit" || weapon == "YOUR WIT" || weapon == "your wit" || weapon == "Your wit" ||
     weapon == "my wit" || weapon == "My Wit" || weapon == "My wit" || weapon == "MYWIT") {
+      cout << "\n>That's just stupid. Wit isn't a weapon against a warrior.\n";
       return -1;
     }
     else return -2;
   }
-  else return -2;
+  else return -3;
+}
+
+int firstResult () {
+  int step1 = firstLeg();
+  switch (step1) {
+    case 0: {
+      cout << "\n>You have chosen wisely. Your victory is swift.\n\n>You have beaten the warrior.\n";
+      return 0;
+    }
+    case -1: {
+      cout << "\n>You are dead. The end.\n\n";
+      return -1;
+    }
+    case -2: {
+      cout << "\n>Invalid weapon choice.\n\n>You are dead. The end.\n\n";
+      return -1;
+    }
+    case -3: {
+      cout << "\n>Invalid direction choice.\n\n>You are dead. The end.\n\n";
+      return -1;
+    }
+  }
 }
 
 int main () {
   welcome();
-  int step1 = firstLeg();
-  switch (step1) {
-    case 0: {
-      cout << "\n>You have chosen wisely. Your victory is swift.\n\n>You win. The end.\n\n";
-      break;
-    }
-    case -1: {
-      cout << "\n>That's just stupid. Wit isn't a weapon against a warrior.\n";
-      cout << "\n>You are dead. The end.\n\n";
-    }
-    case -2: {
-      cout << "\n>Invalid weapon choice.\n\n>You are dead. The end.\n\n";
-    }
-  }
+  int step2 = firstResult();
+  if (step2 == -1) return -1;
 
+  cout << "\n>Time for the next step.\n";
   return 0;
 }
