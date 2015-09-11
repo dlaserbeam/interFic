@@ -16,7 +16,7 @@ void welcome () {
   cout << "\n>Hello, " << readerName << ". Welcome.\n";
 }
 
-int firstLeg () { //error with chained ifs and elses if direction is 'right'
+int firstLeg () {
   cout << "\n>You are walking down a hallway and reach the end. There are two doors,";
   cout << " one to your left, and one to your right. Which do you choose? ";
 
