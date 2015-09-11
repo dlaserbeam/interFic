@@ -1,0 +1,2 @@
+# interFic
+interactive fiction
