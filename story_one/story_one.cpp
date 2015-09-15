@@ -3,7 +3,7 @@
 
 using namespace std;
 
-string getString() {
+string getString () {
   string aString;
   cin.sync();
   getline(cin, aString);
