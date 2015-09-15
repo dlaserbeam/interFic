@@ -85,7 +85,7 @@ int main () {
     case 2:
       karaokeBarSing();
     case 3:
-      cout << "Cowboy bar under development.";
+      cout << ">Currently under development.\n\n";
   }
 
   return 0;
