@@ -21,9 +21,11 @@ namespace Color {
         FG_LIGHT_CYAN     = 96,
         FG_WHITE          = 97,
         FG_DEFAULT        = 39,
+        BG_BLACK          = 40,
         BG_RED            = 41,
         BG_GREEN          = 42,
         BG_BLUE           = 44,
+        BG_WHITE          = 47,
         BG_DEFAULT        = 49
     };
     class Modifier {

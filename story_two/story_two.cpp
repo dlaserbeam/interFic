@@ -9,6 +9,12 @@ Color::Modifier red(Color::FG_RED);
 Color::Modifier blue(Color::FG_BLUE);
 Color::Modifier green(Color::FG_GREEN);
 Color::Modifier def(Color::FG_DEFAULT);
+Color::Modifier blackbg(Color::BG_BLACK);
+Color::Modifier bluebg(Color::BG_BLUE);
+Color::Modifier whitebg(Color::BG_WHITE);
+Color::Modifier greenbg(Color::BG_GREEN);
+Color::Modifier defbg(Color::BG_DEFAULT);
+
 
 string getString () {
   string aString;
@@ -27,7 +33,7 @@ void underDevelopment () {
 }
 
 int getLanguage () {
-  cout << ">Choose language (English or C++): ";
+  cout << ">Choose language (" << green << "English" << def << " or " << green << "C++" << def << "): ";
   string language = getString();
   if (language == "English" || language == "ENGLISH" || language == "english" || language == "eng" || language == "ENG" || language == "Eng") {
     cout << "\n>>Story in English.\n\n";
@@ -46,7 +52,7 @@ int barType (int lang) {
   switch (lang) {
     case 0: //eng
       cout << ">You enter a bar and dicsover to your horror that it's a:\n";
-      cout << "(enter number)\t<1>karaoke bar\t<2>cowbow bar\n";
+      cout << "(enter number)\t" << green << "<1>" << def << "karaoke bar\t" << green << "<2>" << def << "cowbow bar\n";
       int bar;
       cin >> bar;
       return bar;
@@ -64,7 +70,7 @@ int barChoice (int barType) {
       cout << "Wait. Is that your mother? Yes, it is. Standing up on the makeshift stage, singing that song ";
       cout << "(you know the one), and staring straight at you.\n";
       cout << "Yeah. This is bad. The way I see it, you have two choices: turn and run, or join in. You pick.\n";
-      cout << "(enter number)\t<1>run\t<2>sing\n";
+      cout << "(enter number)\t" << green << "<1>" << def << "run\t" << green << "<2>" << def << "sing\n";
       int runSing;
       cin >> runSing;
       return runSing;
