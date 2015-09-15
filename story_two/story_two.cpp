@@ -72,12 +72,12 @@ int barChoice (int barType) {
 }
 
 int karaokeBarRun() {
-  cout << "\n\n>Can't say I blame you. I probably would have run, too.\n\n";
+  cout << "\n>Can't say I blame you. I probably would have run, too.\n\n";
   return 0;
 }
 
 int karaokeBarSing () {
-  cout << "\n\nOkay, you're brave, or insane. Or probably drunk.\n\n";
+  cout << "\nOkay, you're brave, or insane. Or probably drunk.\n\n";
 }
 
 int main () {
@@ -87,9 +87,11 @@ int main () {
   switch (_barChoice) {
     case 1: //eng, karaoke, run
       karaokeBarRun();
+      break;
     case 2: //eng, karaoke, sing
       karaokeBarSing();
-    case 3: //eng, cowboy // and c++
+      break;
+    case 3: //eng, cowboy
       underDevelopment();
   }
 
