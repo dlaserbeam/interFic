@@ -16,6 +16,10 @@ void invalidChoice() {
   exit(2);
 }
 
+void underDevelopment () {
+  cout << ">Currently under development.\n\n";
+}
+
 int getLanguage () {
   cout << ">Choose language (English or C++): ";
   string language = getString();
@@ -32,7 +36,7 @@ int getLanguage () {
   }
 }
 
-int firstLeg (int lang) {
+int barType (int lang) {
   switch (lang) {
     case 0: //eng
       cout << ">You enter a bar and dicsover to your horror that it's a:\n";
@@ -41,12 +45,13 @@ int firstLeg (int lang) {
       cin >> bar;
       return bar;
     case 1: //c++
-      cout << ">// story here\n\n>Under development.\n\n";
+      cout << ">// story here\n\n";
+      underDevelopment();
       return 3;
   }
 }
 
-int bar1 (int barType) {
+int barChoice (int barType) {
   switch (barType) {
     case 1: //eng, karaoke
       cout << "\n>Welcome to the karaoke bar, your worst nightmare. Terrible music and even worse singing.\n";
@@ -60,7 +65,7 @@ int bar1 (int barType) {
       cout << "\n>Welcome to the cowboy bar.\n\n";
       return 3;
     case 3: //c++
-      break;
+      return 0;
     default:
       invalidChoice();
   }
@@ -76,16 +81,16 @@ int karaokeBarSing () {
 }
 
 int main () {
-  int lang = getLanguage();
-  int barType = firstLeg(lang);
-  int barChoice = bar1(barType);
-  switch (barChoice) {
-    case 1:
+  int _lang = getLanguage();
+  int _barType = barType(_lang);
+  int _barChoice = barChoice(_barType);
+  switch (_barChoice) {
+    case 1: //eng, karaoke, run
       karaokeBarRun();
-    case 2:
+    case 2: //eng, karaoke, sing
       karaokeBarSing();
-    case 3:
-      cout << ">Currently under development.\n\n";
+    case 3: //eng, cowboy // and c++
+      underDevelopment();
   }
 
   return 0;
